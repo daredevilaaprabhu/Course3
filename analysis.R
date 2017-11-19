@@ -36,3 +36,5 @@ print("Subset mean and std only")
 newData <- combinedData[,grep("mean[^a-zA-Z]|std[^a-zA-Z]|Activity|Subject", names(combinedData))]
 print("Aggregate the data based on the SUbject and Activity")
 finalData <- aggregate(.~Activity + Subject, data = newData, mean)
+print("Write Data")
+write.table(finalData, "meanByActivityAndSubject.txt", row.names = FALSE)
